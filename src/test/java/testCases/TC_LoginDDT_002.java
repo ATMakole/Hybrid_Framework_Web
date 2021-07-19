@@ -14,7 +14,7 @@ public class TC_LoginDDT_002 extends BaseClass{
         LoginPage lp = new LoginPage(driver);
         lp.setUserName(username);
         lp.setPassword(password);
-        lp.clickSubmit();
+        lp.clickLoginButton() ;
     }
 
     @DataProvider (name="LoginData")

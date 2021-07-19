@@ -14,7 +14,7 @@ public class LandingPage{
         PageFactory.initElements(rdriver, this);
     }
 
-    @FindBy(xpath ="//html/body/nav/div/div[3]/ul/li[1]/a/i")
+    @FindBy(xpath ="//body/nav/div/div[3]/ul/li[1]/a/i")
     @CacheLookup
     WebElement linkVoucher;
     //Voucher -

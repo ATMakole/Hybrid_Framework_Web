@@ -1,10 +1,16 @@
 package pageObject;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import javax.lang.model.element.Element;
+import java.util.List;
 
 public class LoginPage {
     WebDriver ldriver;
@@ -15,6 +21,9 @@ public class LoginPage {
         PageFactory.initElements(rdriver, this);
     }
 
+    @FindBy(xpath ="//div[2]/span/a[2]")
+    @CacheLookup
+    WebElement linkSignIn;
     @FindBy(xpath ="//*[@id='auth-wrapper']/form/fieldset/div[1]/input")
     @CacheLookup
     WebElement txtUserName;
@@ -23,13 +32,17 @@ public class LoginPage {
     @CacheLookup
     WebElement txtPassword;
 
-    @FindBy(xpath="//*[@id='auth-wrapper']/form/fieldset/div[4]/button")
+    @FindBy(xpath="//fieldset/div[4]/button")
     @CacheLookup
     WebElement btnLogin;
-//html/body/nav/div/div[3]/ul/li[3]/a
-    @FindBy(xpath="//span[contains(text(),'Sign Out')]")
+
+    @FindBy(xpath="//*[@id='auth-wrapper']/form/fieldset/div[4]/button")
     @CacheLookup
     WebElement linkSignOut;
+
+    @FindBy(xpath="//")
+    @CacheLookup
+    WebElement linkVoucher;
 
     public void setUserName(String username)
     {
@@ -41,13 +54,15 @@ public class LoginPage {
         txtPassword.sendKeys(pwd);
     }
 
-    public void clickSubmit()
+    public void clickLoginButton()
     {
         btnLogin.click();
     }
 
-    public void clickSignOut()
-    {
-        linkSignOut.click();
-    }
+    public void clickSignInLink(){ linkSignIn.click(); }
+
+    public void clickSignOutLink(){ linkSignOut.click(); }
+
+    public void clickVoucherLink(){ linkVoucher.click(); }
+
 }
